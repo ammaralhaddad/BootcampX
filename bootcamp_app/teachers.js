@@ -8,6 +8,12 @@ const pool = new Pool({
 });
 
 
+const cohortName = process.argv[2];
+const limit = process.argv[3] || 5;
+// Store all potentially malicious values in an array.
+const values = [`%${cohortName}%`, limit];
+
+
 
 pool.query(`
 SELECT DISTINCT teachers.name as teacher, cohorts.name as cohort
